@@ -10,27 +10,7 @@ Hall-o-Flow is an intelligent college timetable and study planning assistant des
 - **Study Assistant**: Conversational AI for querying schedules and requesting study optimizations.
 - **Dual Aesthetic Themes**: Choose between 'Cyber/Neon' and 'Royal/Obsidian' interfaces.
 
-## 🏗 System Architecture
 
-```mermaid
-graph TD
-    User((Student)) -->|Interacts| Frontend[React.js Frontend]
-    Frontend -->|API Requests| Backend[Node.js/Express Backend]
-    
-    subgraph "Backend Intelligence"
-        Backend -->|Query Processing| AIEngine[Study Optimization Engine]
-        AIEngine -->|Generates| StudyPlan[Study Plans]
-        AIEngine -->|Fetches| TimetableData[Timetable Records]
-    end
-    
-    Backend -->|CRUD Operations| DB[(MongoDB Database)]
-    
-    subgraph "Data Models"
-        DB --- Users[User Profiles]
-        DB --- Tasks[Academic Tasks]
-        DB --- Schedules[Timetable & Plans]
-    end
-```
 
 ## 📁 Project Structure
 
@@ -63,27 +43,27 @@ hall-o-flow/
 - **AI Logic**: Day-aware query processing for academic assistance.
 - **Environment**: Docker & Docker Compose.
 
-## ⚙️ Quick Start
+## 🏗 System Architecture
 
-### Installation
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   # Root
-   npm install
-   # Backend
-   cd backend && npm install
-   # Frontend
-   cd ../frontend && npm install
-   ```
-3. Seed the database:
-   ```bash
-   cd backend && npm run seed
-   ```
-4. Run the development environment:
-   ```bash
-   npm run dev
-   ```
+```mermaid
+graph TD
+    User((Student)) -->|Interacts| Frontend[React.js Frontend]
+    Frontend -->|API Requests| Backend[Node.js/Express Backend]
+    
+    subgraph "Backend Intelligence"
+        Backend -->|Query Processing| AIEngine[Study Optimization Engine]
+        AIEngine -->|Generates| StudyPlan[Study Plans]
+        AIEngine -->|Fetches| TimetableData[Timetable Records]
+    end
+    
+    Backend -->|CRUD Operations| DB[(MongoDB Database)]
+    
+    subgraph "Data Models"
+        DB --- Users[User Profiles]
+        DB --- Tasks[Academic Tasks]
+        DB --- Schedules[Timetable & Plans]
+    end
+```
 ### Use Case Descriptions
 - **3.2.1 User Registration**: Seamless onboarding with roll number and department validation.
 - **3.2.2 Login**: Secure JWT-based authentication.
