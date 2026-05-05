@@ -84,14 +84,6 @@ hall-o-flow/
    ```bash
    npm run dev
    ```
-
-## 📝 Appendix
-
-### Project Contributors
-- **Ram Malhotra** (Lead Developer & AI Architect)
-- **Sarah** (Frontend Engineer & UI/UX Designer)
-- **Academic Mentors**: Dept. of Computer Science and Engineering, PSG College of Technology.
-
 ### Use Case Descriptions
 - **3.2.1 User Registration**: Seamless onboarding with roll number and department validation.
 - **3.2.2 Login**: Secure JWT-based authentication.
