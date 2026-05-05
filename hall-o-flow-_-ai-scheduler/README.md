@@ -7,21 +7,63 @@ Hall-o-Flow is an intelligent college timetable and study planning assistant des
 - **Automated Timetable Management**: Dynamic visualization of college schedules with day-wise filtering.
 - **Intelligent Study Planner**: Generates optimized study blocks based on timetable gaps and subject difficulty.
 - **Performance Analytics**: Real-time tracking of study completion rates and academic consistency.
-- **EduBot Assistant**: Conversational AI for querying schedules and requesting study optimizations.
+- **Study Assistant**: Conversational AI for querying schedules and requesting study optimizations.
 - **Dual Aesthetic Themes**: Choose between 'Cyber/Neon' and 'Royal/Obsidian' interfaces.
+
+## 🏗 System Architecture
+
+```mermaid
+graph TD
+    User((Student)) -->|Interacts| Frontend[React.js Frontend]
+    Frontend -->|API Requests| Backend[Node.js/Express Backend]
+    
+    subgraph "Backend Intelligence"
+        Backend -->|Query Processing| AIEngine[Study Optimization Engine]
+        AIEngine -->|Generates| StudyPlan[Study Plans]
+        AIEngine -->|Fetches| TimetableData[Timetable Records]
+    end
+    
+    Backend -->|CRUD Operations| DB[(MongoDB Database)]
+    
+    subgraph "Data Models"
+        DB --- Users[User Profiles]
+        DB --- Tasks[Academic Tasks]
+        DB --- Schedules[Timetable & Plans]
+    end
+```
+
+## 📁 Project Structure
+
+```text
+hall-o-flow/
+├── backend/                # Express API Server
+│   ├── src/
+│   │   ├── controllers/    # Business Logic (Chat, Analytics, Schedule)
+│   │   ├── middleware/     # Auth & Database connection
+│   │   ├── models/         # MongoDB Schemas
+│   │   ├── routes/         # API Endpoints
+│   │   └── database/       # Seed scripts & Migration logic
+│   └── package.json
+├── frontend/               # React Single Page Application
+│   ├── components/
+│   │   ├── layout/         # Navbar, Sidebar, Page Wrapper
+│   │   ├── sections/       # Dashboard, Timetable, StudyPlan, Chat
+│   │   └── ui/             # Reusable UI components (Buttons, Cards)
+│   ├── hooks/              # Custom React hooks
+│   └── index.tsx           # Entry point
+├── docker-compose.yml      # Container orchestration
+├── QUICKSTART.md           # Developer setup guide
+└── README.md               # Project documentation
+```
 
 ## 🛠 Tech Stack
 
 - **Frontend**: React.js, Tailwind CSS, Lucide Icons, Framer Motion.
 - **Backend**: Node.js, Express.js, MongoDB (Mongoose).
-- **AI/NLP**: Integrated query processing logic for academic assistance.
-- **Environment**: Docker & Docker Compose for seamless deployment.
+- **AI Logic**: Day-aware query processing for academic assistance.
+- **Environment**: Docker & Docker Compose.
 
 ## ⚙️ Quick Start
-
-### Prerequisites
-- Node.js (v18+)
-- MongoDB (Running locally or via Docker)
 
 ### Installation
 1. Clone the repository
@@ -34,9 +76,12 @@ Hall-o-Flow is an intelligent college timetable and study planning assistant des
    # Frontend
    cd ../frontend && npm install
    ```
-3. Run the development environment:
+3. Seed the database:
    ```bash
-   # Run both via root (if configured) or separately
+   cd backend && npm run seed
+   ```
+4. Run the development environment:
+   ```bash
    npm run dev
    ```
 
@@ -53,12 +98,6 @@ Hall-o-Flow is an intelligent college timetable and study planning assistant des
 - **3.2.3 View Timetable**: Interactive grid with search functionality.
 - **3.2.4 Chat with Bot**: Natural language processing for schedule queries.
 - **3.2.5 Track Progress**: Visual indicators for low-completion subjects ("Needs Attention").
-
-### System Architecture
-The application follows a three-tier architecture:
-1. **Presentation Layer**: React.js single-page application.
-2. **Application Layer**: Node.js REST API.
-3. **Data Layer**: MongoDB NoSQL database for flexible academic records.
 
 ---
 *Developed for the Application Development Laboratory (23Z415).*
